@@ -26,3 +26,15 @@ class Database(object):
             return "Data deleted!"
         else:
             return "No record found"
+        
+    staticmethod
+    def find(collection, params):
+        # returning the fetched data
+        results = Database.DBase[collection].find(params)
+        return results
+
+    @staticmethod
+    def find_one(collection, params):
+        # returning the fetched one row by param
+        results = Database.DBase[collection].find_one(params)
+        return results
