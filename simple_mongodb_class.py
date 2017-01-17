@@ -9,7 +9,7 @@ class Database(object):
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.uri)
-        Database.DBase = client['scrumit']
+        Database.DBase = client['bcamp']
 
     @staticmethod
     def insert(collection, data):
