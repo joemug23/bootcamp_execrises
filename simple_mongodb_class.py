@@ -38,3 +38,10 @@ class Database(object):
         # returning the fetched one row by param
         results = Database.DBase[collection].find_one(params)
         return results
+
+     @staticmethod
+    def update(collection, params, data):
+        # update a row corresponding to a given id
+
+        Database.DBase[collection].update(params, data)
+        return "Data updated successfully"
