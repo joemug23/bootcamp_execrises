@@ -9,14 +9,16 @@ def get_a_user(username, password):
 
     req = requests.get('https://api.github.com/user', auth=(username, password))
     if req.status_code == 200:
-        print(req.text)
+        print("Username: " +req.json()["login"])
+        print("Account Created on: " +req.json()["created_at"])
+        print("Location: " +req.json()["location"])
         return req.text
     elif req.status_code == 404:
-        print(req.status_code)
+        print(str(req.status_code)+" :User not found")
         return "User not found"
     elif req.status_code == 401:
-        print(req.status_code)
+        print(str(req.status_code)+" :Wrong details, Access denied!")
         return "Wrong details, Access denied!"
 
 # call this function with github credentials
-# get_a_user("username", "password")
+# get_a_user("joemug23", "")
